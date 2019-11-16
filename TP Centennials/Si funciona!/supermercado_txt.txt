@@ -1,0 +1,82 @@
+
+drop database Supermercado;
+
+create database Supermercado;
+use Supermercado;
+
+create table Sucursales(
+codigo_sucursal int not null primary key,
+barrio varchar(50),
+direccion varchar(70)
+);
+ 
+ create table Ventas(
+ numero_Ticket int not null primary key,
+ codigo_sucursal int not null,
+ fecha date not null,
+ monto_total double not null,
+ medio_de_pago varchar (20),
+foreign key(codigo_sucursal) references Sucursales(codigo_sucursal) 
+ );
+ 
+ALTER TABLE Ventas
+ADD FOREIGN KEY (codigo_sucursal) REFERENCES Sucursales(codigo_sucursal);
+ 
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1001, 'Villa Luro' , 'Av Rivadavia 3566') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1002, 'Almagro' , 'Rawson 26') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1003, 'Balvanera' , 'Av. Rivadavia 3050') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1004, 'San Cristóbal' , 'Av. Independencia 2262') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1005, 'Almagro' , 'Río de Janeiro 844') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1006, 'Caballito' , 'Otamendi 443') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1007, 'San Nicolás' , 'Tte. Gral. Juan Domingo Perón 1653') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1008, 'Flores' , 'Junin 638') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1009, 'Monserrat' , 'Viamonte 1141') ;
+insert into Sucursales (codigo_sucursal, barrio, direccion) values (1010, 'Recoleta' , 'Riobamba 1014') ;
+
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5358, 1001, '2019/10/11', 2600, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5359, 1010, '2019/11/16', 3590, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5360, 1009, '2019/09/10', 1200, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5361, 1005, '2019/10/20', 9800, "Credito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5362, 1003, '2019/11/15', 5950, "Credito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5363, 1002, '2019/09/09', 121, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5364, 1010, '2019/10/15', 590, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5365, 1004, '2019/10/20', 3056, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5366, 1005, '2019/09/29', 454, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5367, 1009, '2019/09/30', 2600, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5368, 1002, '2019/11/14', 3450, "Credito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5370, 1010, '2019/09/23', 780, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5371, 1010, '2019/11/20', 900, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5372, 1001, '2019/09/27', 1240, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5373, 1001, '2019/10/19', 670, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5374, 1002, '2019/11/16', 7000, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5375, 1002, '2019/11/11', 4500, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5376, 1004, '2019/10/20', 340, "Efectivo");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5377, 1005, '2019/09/23', 3760, "Credito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5378, 1003, '2019/09/26', 2340, "Credito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5379, 1007, '2019/09/30', 5600, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5380, 1007, '2019/10/30', 2450, "Credito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5381, 1009, '2019/09/19', 7600, "Debito");
+insert into Ventas (numero_Ticket, codigo_sucursal, fecha, monto_total, medio_de_pago) values (5382, 1008, '2019/09/08', 600, "Efectivo");
+
+ 
+use Supermercado;
+
+select * from sucursales;
+
+select * from ventas;
+
+select * from sucursales where barrio = 'Almagro';
+
+select * from ventas where fecha >='2019/10/01' and fecha<='2019/10/31';
+
+select * from ventas where monto_total > (select avg(monto_total) from ventas) order by monto_total desc ;
+	
+select * from ventas v inner join Sucursales s on v.codigo_sucursal = s.codigo_sucursal where s.barrio = 'Almagro' 
+	and v.fecha >='2019/10/01' and v.fecha<='2019/10/31';
+
+ 
+ select count(*) from sucursales s inner join ventas v on s.codigo_sucursal = v.codigo_sucursal where 
+	v.monto_total > 1000 and v.fecha>='2019/09/01' and v.fecha <='2019/09/30';
+    
+select s.codigo_sucursal, v.monto_total from ventas v inner join sucursales s on v.codigo_sucursal = s.codigo_sucursal 
+	where v.fecha >= '2019/11/01' and v.fecha <= '2019/11/15' order by v.monto_total asc;
